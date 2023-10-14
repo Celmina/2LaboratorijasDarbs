@@ -1,0 +1,66 @@
+<<!-- Evita Celmina 221RDB187 6.grupa -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Event demo</title>
+  <style>
+    .center {
+        margin: auto;
+        width: 50%;
+        border: 2px solid green;
+        padding: 10px;
+        text-align: center;
+      }
+  </style>
+  </head>
+  <body>
+     <div class = "AUTORS-->"Evita Celmina - 221RDB187>
+     <div class="center"> 
+      <input id="txt" type="text" value="" ><br>
+      <button id="btn" onclick="ng()">New Game</button>
+      <button id="btn2" onclick="compare()">Ok</button><br><br>
+      <label id = "Result"></label>
+      <script>
+        let randomNumber = Math.floor(Math.random() * 10) + 1;
+        let i = 0;
+        function ng() {
+          let textField = document.getElementById("txt");
+          let result = document.getElementById("Result");
+          textField.value = "";
+          result.textContent = "";
+          randomNumber = Math.floor(Math.random() * 10) + 1;
+          i = 0;
+
+        }
+
+        function compare(){
+          let textField = document.getElementById("txt");
+          let result = document.getElementById("Result");
+          
+          if ( textField.value > 10 || textField.value < 0){
+            result.textContent = "error";
+            return;
+          }
+            
+          if(randomNumber == textField.value){
+            result.textContent = "You Win!";
+            return;
+          }
+          else{
+            if(textField.value > randomNumber){
+              result.textContent = "my number is less than yours";
+            }
+            else if (textField.value < randomNumber){
+              result.textContent = " my number is greater than yours";
+            }
+            i++;
+            if (i>=4){
+              result.textContent = "You lose!";
+            }
+          }
+            
+        } 
+        
+    </script>
+  </body>
+</html>
